@@ -1,8 +1,8 @@
 /*
 * @Author: lenovo
 * @Date:   2018-12-24 11:02:48
-* @Last Modified by:   lenovo
-* @Last Modified time: 2019-01-04 09:49:05
+* @Last Modified by:   Fanningyuan
+* @Last Modified time: 2019-01-04 11:07:49
 */
 //净含量
 var js1=document.getElementById("js_1");
@@ -30,19 +30,39 @@ var js8=document.getElementById('js8');
 var slider = document.getElementById("slider");
 var box = document.getElementById('box'); 
 var js_bigimg=document.getElementById('js_bigimg');
-js6.onclick=function(){
+var Bimg=document.getElementById("Bimg");
+js6.onmouseover=function(){
 	js6.style.border='1px solid red';
 	js7.style.border='none';
-	js4.innerHTML='<img src="任务所需小图/img/pp0.jpeg" height="408" width="408" alt="">';
-	js_bigimg.innerHTML='<img src="任务所需小图/img/pp0.jpeg" height="408" width="408" alt="" id="Bimg">';
+	js4.children[0].src ='任务所需小图/img/pp0.jpeg';
+	js_bigimg.children[0].src='任务所需小图/img/pp0.jpeg';
 }
-js7.onclick=function(){
+js7.onmouseover=function(){
 	js7.style.border='1px solid red';
 	js6.style.border='none';
-	js4.innerHTML='<img src="任务所需小图/img/pp1.jpeg" height="408" width="408" alt="">';
-	js_bigimg.innerHTML='<img src="任务所需小图/img/pp1.jpeg" height="408" width="408" alt="" id="Bimg">';
+	js4.children[0].src ='任务所需小图/img/pp1.jpeg';
+	js_bigimg.children[0].src='任务所需小图/img/pp1.jpeg';
 }
-
+    js4.onmousemove=function(ev){
+		var ev=ev||event;
+		  
+		var oL=ev.clientX-box.offsetLeft-slider.offsetWidth/2;
+		var oT=ev.clientY-box.offsetTop-slider.offsetHeight/2;
+		  
+		var oMaxw=js4.offsetWidth-slider.offsetWidth;
+		var oMaxh=js4.offsetHeight-slider.offsetHeight;
+		  
+		oL=oL>oMaxw?oMaxw:oL<0?0:oL;
+		oT=oT>oMaxh?oMaxh:oT<0?0:oT;
+		
+		slider.style.left = oL+'px';
+		slider.style.top = oT+'px' ;
+		
+		var oBmaxw = js_bigimg.offsetWidth - Bimg.offsetWidth; 
+		var oBmaxh = js_bigimg.offsetHeight - Bimg.offsetHeight; 
+		Bimg.style.left = ( oL/oMaxw ) * oBmaxw + 'px'
+		Bimg.style.top = ( oT/oMaxh ) * oBmaxh + 'px'
+	}
 js4.onmouseover=function(){
 	slider.style.display="block";
 	js_bigimg.style.display="block";
@@ -51,6 +71,7 @@ js4.onmouseout=function(){
 	slider.style.display="none";
 	js_bigimg.style.display="none";
 }
+
 //数量
 var jia=document.getElementById('jia');
 var jian=document.getElementById('jian');

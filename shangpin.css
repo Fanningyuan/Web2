@@ -1,8 +1,8 @@
 /*
 * @Author: lenovo
 * @Date:   2018-12-17 09:48:24
-* @Last Modified by:   lenovo
-* @Last Modified time: 2019-01-04 09:11:17
+* @Last Modified by:   Fanningyuan
+* @Last Modified time: 2019-01-04 10:54:56
 */
 *{
 	padding: 0px;
@@ -267,6 +267,7 @@ body{
 	margin-left: 20px;
 	margin-top: 20px;
 	border:1px solid #d0cdc7;
+	position: relative;
 }
 .div-5-3{
 	width: 388px;
@@ -475,7 +476,12 @@ div-5-9 div{
 	 display: none;
 	 overflow: hidden;
 	 right: 510px;
-	 top: 225px;
+	 top: 225px; 
+}
+#js_bigimg img{
+	width: 1120px;
+	height: 1120px;
+	position: absolute;
 }
 #slider{
 	width:150px;
@@ -489,3 +495,4 @@ div-5-9 div{
 	display:none;
 	filter:alpha(opacity=40);
 }
+/* #box{position: relative;} */
